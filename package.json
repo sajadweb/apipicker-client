@@ -7,8 +7,10 @@
     "@material-ui/core": "latest",
     "@types/react": "*",
     "@types/react-dom": "*",
+    "jss-rtl": "^0.2.3",
     "react": "latest",
     "react-dom": "latest",
+    "react-jss": "^8.6.1",
     "react-scripts": "latest"
   },
   "devDependencies": {
