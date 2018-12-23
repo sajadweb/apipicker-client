@@ -11,11 +11,13 @@
     "react": "latest",
     "react-dom": "latest",
     "react-jss": "^8.6.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "latest"
   },
   "devDependencies": {
     "@types/jest": "*",
     "@types/node": "*",
+    "@types/react-router-dom": "^4.3.1",
     "typescript": "latest"
   },
   "scripts": {
