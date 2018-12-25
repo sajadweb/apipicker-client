@@ -6,7 +6,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import LinearProgress from '@material-ui/core/LinearProgress';
 import { Link } from 'react-router-dom';
 
 const styles = (theme: Theme) =>
@@ -31,14 +31,22 @@ const styles = (theme: Theme) =>
 
 class Index extends React.Component<WithStyles<typeof styles>> {
 
-
+ 
     render() {
         const { classes } = this.props;
         return (
             <div className={classes.root}>
                 <AppBar position="fixed" color="primary">
+                    {/* <LinearProgress value={3} color="secondary" variant="query" /> */}
                     <Toolbar>
-                        <Typography className={classes.title} variant="h6" color="inherit" noWrap>
+                    <Typography
+                            variant="title"
+                            color="inherit"
+                            style={{ borderLeft: '0.1em solid black', padding: '0.5em' }}
+                            >
+                            Title
+                        </Typography>
+                        {/* <Typography className={classes.title} variant="h6" color="inherit" noWrap>
 
                             <Link type="secondary" to="/" >
                                 خانه
@@ -55,7 +63,7 @@ class Index extends React.Component<WithStyles<typeof styles>> {
                             <Link type="secondary" to="/about" >
                                 درباره ما
                                </Link>
-                        </Typography>
+                        </Typography> */}
 
                     </Toolbar>
                 </AppBar>

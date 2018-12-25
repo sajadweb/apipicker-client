@@ -5,6 +5,7 @@
   "main": "src/index.tsx",
   "dependencies": {
     "@material-ui/core": "latest",
+    "@material-ui/icons": "^3.0.1",
     "@types/react": "*",
     "@types/react-dom": "*",
     "jss-rtl": "^0.2.3",
