@@ -1,6 +1,9 @@
-import {createMuiTheme} from "@material-ui/core/styles/index";
+import { createMuiTheme } from "@material-ui/core/styles/index";
 
 const Theme = createMuiTheme({
+    typography: {
+        useNextVariants: true,
+    },
     palette: {
         primary: {
             light: '#ed4b82',

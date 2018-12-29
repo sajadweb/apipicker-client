@@ -32,7 +32,34 @@ class Index extends React.Component<WithStyles<typeof styles>, State> {
             <div className={this.props.classes.root}>
                 <Typography className={classes.typography}>دیگه نیاز نیست همه api روبنویسی</Typography>
 
-                <Code />
+                <Code data={
+                    {
+                        title: "لیست شهرها",
+                        description: "با این ای پی ای شما می توانید لیست شهر ها رو دریافت کنید ",
+                        method: "POST",
+                        path: "https://api.apipicker.com",
+                        prefix: "/cite",
+                        header: [
+                            {
+                                key: "Authorization",
+                                value: "bear dscsdcsdfd,foswldfe,cow,fwsolfec,wo",
+                                description: "",
+                            }
+                        ],
+                        params: [
+                            {
+                                key: "name",
+                                value: "sajadweb",
+                                description: "it is name for user",
+                            }
+                        ],
+                        body: {
+                            page: 1,
+                        },
+                        receive: [{  id: 1,name: "string" },{id: 2,name: "string" },],
+                    }
+                } />
+                <Typography className={classes.typography}>دیگه نیاز نیست همه api روبنویسی</Typography>
             </div>
         );
     }
