@@ -10,6 +10,7 @@
     "@types/react-dom": "*",
     "jss-rtl": "^0.2.3",
     "react": "latest",
+    "react-animated-slider": "^1.1.4",
     "react-dom": "latest",
     "react-json-view": "^1.19.1",
     "react-jss": "^8.6.1",

@@ -36,7 +36,7 @@ class Index extends React.Component<WithStyles<typeof styles>> {
                     </Grid>
                 </AppBar>
                 <Grid container spacing={0}>
-                    <Grid item xs={12} className={classes.continuer}>
+                    <Grid item xs={12} >
                         {this.props.children}
                     </Grid>
                 </Grid>
