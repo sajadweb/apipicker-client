@@ -6,8 +6,8 @@ import Button from '@material-ui/core/Button';
 const content = [
     {
         image: "https://i.imgur.com/ZXBtVw7.jpg",
-        title: "مابرای شما بهترین ها رو ساختیم",
-        description: "ما برای شما بهترین ها رو ساختیم",
+        title: "همین حالا ایده خود رو بسازید",
+        description: "Apipicker"+"سبب طراحی API می شود و ابزارهای آسان برای استفاده را برای توسعه دهندگان، معماران و صاحبان محصول می سازد",
         button: "همین حالا شروع کن",
     },
     {
