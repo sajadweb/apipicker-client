@@ -10,15 +10,15 @@ const styles = (theme: Theme) =>
         black: {
             flexGrow: 1,
             minHeight: 400,
-            // marginBottom: 10,
-            marginTop: 10,
-            backgroundColor: theme.palette.grey[300]
+            paddingBottom: 10,
+            paddingTop: 10,
+            backgroundColor: theme.palette.grey[200]
         },
         white: {
             flexGrow: 1,
             minHeight: 400,
-            // marginBottom: 10,
-            marginTop: 10,
+            paddingBottom: 10,
+            paddingTop: 10,
             backgroundColor: theme.palette.grey[50]
         },
     });

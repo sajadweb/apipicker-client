@@ -44,10 +44,10 @@ class ContentItem extends React.PureComponent<IProps> {
         const { theme, classes, item } = this.props;
         return (
             <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography gutterBottom variant="title" component="h2">
                     {item.title}
                 </Typography>
-                <Typography component="p">
+                <Typography variant="subtitle1" component="p">
                     {item.description}
                 </Typography>
             </CardContent>
