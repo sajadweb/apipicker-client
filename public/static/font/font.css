@@ -1,0 +1,48 @@
+/**1 font set Vazir-Bold*/
+@font-face {
+    font-family: Vazir-Bold;
+    src: url('Vazir-Bold-FD.eot?#') format('eot'),
+    url('Vazir-Bold-FD.woff') format('woff'),
+    url('Vazir-Bold-FD.ttf') format('truetype');
+}
+
+/**2 font set Vazir-FD*/
+@font-face {
+    font-family: Vazir-FD;
+    src: url('Vazir-FD.eot?#') format('eot'),
+    url('Vazir-FD.woff') format('woff'),
+    url('Vazir-FD.ttf') format('truetype');
+}
+
+/**2 font set Vazir-FD*/
+@font-face {
+    font-family: Vazir-Light;
+    src: url('Vazir-Light-FD.eot?#') format('eot'),
+    url('Vazir-Light-FD.woff') format('woff'),
+    url('Vazir-Light-FD.ttf') format('truetype');
+}
+
+/**1 font set Vazir-Bold*/
+@font-face {
+    font-family: Vazir-Bold;
+    src: url('Vazir-Bold-FD.eot?#') format('eot'),
+        url('Vazir-Bold-FD.woff') format('woff'),
+        url('Vazir-Bold-FD.ttf') format('truetype');
+}
+
+
+
+h1,h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 ,strong,th,lable{
+    font-family: "Vazir-Bold";
+}
+
+body ,span,a,label,button,ul,li,li > a,ul>li>a ,ul>li>ul>li>a,li,span,.setFontVazir{
+    font-family: "Vazir-Light";
+}
+.breadcrumb>li,tbody>tr>td,p,.snotifyToast__body{
+    font-family: "Vazir-Light"!important;
+}
+
+input[type="submit"],.fontbold,.panel-header>h3,thead > tr > td,.panel-heading,strong,.setFontVazirBold,h2,h6{
+    font-family: "Vazir-Bold"!important;
+}

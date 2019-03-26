@@ -4,37 +4,12 @@ import 'react-animated-slider/build/horizontal.css';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-const content = [
-    {
-        image: "/static/images/slider/a.jpg",
-        title: "همین حالا ایده خود رو بسازید",
-        description: "Apipicker"+
-        "سبب طراحی API می شود و ابزارهای آسان برای استفاده را برای توسعه دهندگان، معماران و صاحبان محصول می سازد",
-        button: "همین حالا شروع کن",
-    },
-    {
-        image: "/static/images/slider/b.jpg",
-        title: "نگران ارتباط با هم تیمی خود نباشید",
-        description: "ما برای شما بستری رو امده کردیم تا بتوانید داکیمنت ها خود رو با هم تیمی خود به اشتراگ بگزارید",
-        button: "همین حالا شروع کن",
-    },
-    // {
-    //     image: "https://i.imgur.com/DCdBXcq.jpg",
-    //     title: "عنوان مناسب",
-    //     description: "توضیح کامل",
-    //     button: "همین حالا شروع کن",
-    // },
-];
-
 class Index extends React.Component {
-
-
     render() {
-
         return (
             <React.Fragment >
                 <Slider  >
-                    {content.map((item, index) => (
+                    {this.props.content.map((item, index) => (
                         <div
                             key={index}
                             style={{ background: `url('${item.image}') no-repeat center center`, }}

@@ -3,8 +3,8 @@ import {
     Route, Switch, Link
 } from 'react-router-dom';
 import NotFound from "./404.route";
-import User from "./../page/user";
-import UserLogin from "./../page/user/login";
+import User from "./../pages/user";
+import UserLogin from "./../pages/user/login";
 import { WithPanelRoot } from '../common';
 import { PanelHeader } from '../components';
 

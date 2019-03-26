@@ -2,8 +2,8 @@ import * as React from 'react';
 import {
     Route, Switch, Link
 } from 'react-router-dom';
-import Main from "./../page/main";
-import About from "./../page/about";
+import Main from "./../pages/main";
+import About from "./../pages/about";
 
 import Notfound from "./404.route";
 import { WithMainRoot } from '../common';

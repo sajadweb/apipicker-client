@@ -54,6 +54,26 @@ const styles = (theme: Theme) =>
             height: '40px',
             width: '120px',
         },
+
+        container: {
+            display: 'flex',
+            flexWrap: 'wrap',
+          },
+          textField: {
+            marginLeft: "5%",
+            marginRight: "5%",
+            width: "90%",
+          },
+          dense: {
+            marginTop: -5,
+          }, 
+          button: {
+            marginTop: 15,
+            marginBottom: 15,
+            marginLeft: "5%",
+            marginRight: "5%",
+            width: "90%",
+          }, 
     });
 
 export default styles;

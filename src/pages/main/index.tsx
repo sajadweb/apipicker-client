@@ -3,7 +3,9 @@ import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import createStyles from '@material-ui/core/styles/createStyles';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
-import { Code, Carousel, Container, Content, ContentItem } from '../../components';
+import {  Carousel} from '../../components';
+import Main from './screen/main';
+import { IPropsCode, IPropsCarousel } from '../../common';
 
 
 
@@ -22,6 +24,53 @@ type State = {
     open: boolean;
     value: number;
 };
+const code: IPropsCode =  {
+    title: "لیست شهرها",
+    description: "با این ای پی ای شما می توانید لیست شهر ها رو دریافت کنید ",
+    method: "POST",
+    path: "https://api.apipicker.com",
+    prefix: "/cite",
+    header: [
+        {
+            key: "Authorization",
+            value: "bear dscsdcsdfd,foswldfe,cow,fwsolfec,wo",
+            description: "",
+        }
+    ],
+    params: [
+        {
+            key: "name",
+            value: "sajadweb",
+            description: "it is name for user",
+        }
+    ],
+    body: {
+        page: 1,
+    },
+    receive: [{ id: 1, name: "string" }, { id: 2, name: "string" },],
+};
+const slider: Array<IPropsCarousel> = [
+    {
+        image: "/static/images/slider/a.jpg",
+        title: "همین حالا ایده خود رو بسازید",
+        description: "Apipicker"+
+        "سبب طراحی API می شود و ابزارهای آسان برای استفاده را برای توسعه دهندگان، معماران و صاحبان محصول می سازد",
+        button: "همین حالا شروع کن",
+    },
+    {
+        image: "/static/images/slider/b.jpg",
+        title: "نگران ارتباط با هم تیمی خود نباشید",
+        description: "ما برای شما بستری رو امده کردیم تا بتوانید داکیمنت ها خود رو با هم تیمی خود به اشتراگ بگزارید",
+        button: "همین حالا شروع کن",
+    },
+    // {
+    //     image: "https://i.imgur.com/DCdBXcq.jpg",
+    //     title: "عنوان مناسب",
+    //     description: "توضیح کامل",
+    //     button: "همین حالا شروع کن",
+    // },
+];
+
 const items = [
     {
         title: "طراحی API",
@@ -58,50 +107,7 @@ class Index extends React.Component<WithStyles<typeof styles>, State> {
 
         return (
             <div className={this.props.classes.root}>
-
-                <Carousel />
-                {items.map((item, index) => (
-                    <Content theme={index % 2 == 0 ? "black" : "white"}>
-                        <ContentItem theme={index % 2 == 0 ? "left" : "right"} item={item} />
-                    </Content>
-                ))}
-
-
-                <Content theme={items.length % 2 == 0 ? "black" : "white"} >
-                    <ContentItem theme="center" item={{
-                        title: "همین حالا ایده خود رو بسازید",
-                        description: "",
-                        image: "",
-                        component: (
-                            <Code data={
-                                {
-                                    title: "لیست شهرها",
-                                    description: "با این ای پی ای شما می توانید لیست شهر ها رو دریافت کنید ",
-                                    method: "POST",
-                                    path: "https://api.apipicker.com",
-                                    prefix: "/cite",
-                                    header: [
-                                        {
-                                            key: "Authorization",
-                                            value: "bear dscsdcsdfd,foswldfe,cow,fwsolfec,wo",
-                                            description: "",
-                                        }
-                                    ],
-                                    params: [
-                                        {
-                                            key: "name",
-                                            value: "sajadweb",
-                                            description: "it is name for user",
-                                        }
-                                    ],
-                                    body: {
-                                        page: 1,
-                                    },
-                                    receive: [{ id: 1, name: "string" }, { id: 2, name: "string" },],
-                                }
-                            } />)
-                    }} />
-                </Content>
+               <Main carousel={slider} items={items} code={code} />
             </div >
         );
     }

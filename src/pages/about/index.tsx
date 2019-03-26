@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import createStyles from '@material-ui/core/styles/createStyles';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
+import { Page } from '../../components';
 
 
 const styles = (theme: Theme) =>
@@ -35,9 +36,11 @@ class Index extends React.Component<WithStyles<typeof styles>, State> {
 
     render() {
         return (
-            <div className={this.props.classes.root}>
-                <p>About Us</p>
-            </div>
+            <Page title="درباره ما">
+                <p>
+                    sasda
+                </p>
+            </Page>
         );
     }
 }

@@ -1,6 +1,10 @@
 import { createMuiTheme } from "@material-ui/core/styles/index";
 
 const Theme = createMuiTheme({
+    typography: {
+        // Use the system font instead of the default Roboto font.
+        fontFamily: '"Vazir-Light"!important'
+      },
     palette: {
         primary: {
             light: '#757ce8',
@@ -15,7 +19,7 @@ const Theme = createMuiTheme({
             contrastText: '#fff',
         },
         common: {
-            white: '#fff'
+            white: '#fff',
         },
     },
     direction: 'rtl',
