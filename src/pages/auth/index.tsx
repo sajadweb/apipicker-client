@@ -3,7 +3,7 @@ import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import createStyles from '@material-ui/core/styles/createStyles';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 import { Page } from '../../components-ui';
-
+import Auth from './screen/auth';
 
 const styles = (theme: Theme) =>
     createStyles({
@@ -36,10 +36,8 @@ class Index extends React.Component<WithStyles<typeof styles>, State> {
 
     render() {
         return (
-            <Page title="درباره ما">
-                <p>
-                    sasda
-                </p>
+            <Page  fullscreen title="ورود یا ثبت نام">
+                <Auth />
             </Page>
         );
     }

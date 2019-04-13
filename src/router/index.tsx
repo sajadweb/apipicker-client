@@ -5,8 +5,8 @@ import {
 import Main from "./main.route";
 import Panel from "./panel.route";
 
-import { createBrowserHistory } from 'history';
-const history = createBrowserHistory();
+import history from './history';
+ 
 
 class Index extends React.PureComponent<{}>{
 

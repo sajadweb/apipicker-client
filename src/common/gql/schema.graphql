@@ -6,6 +6,16 @@ export const LOCAL_MODAL_QUERY = gql`
   query {
     isLogin @client
   }`;
+export const LOCAL_NOTIFY_QUERY = gql`
+  query {
+    notify @client
+  }`;
+
+export const TOGGLE_NOTIFY_MUTATION = gql`
+  mutation TOGGLE_NOTIFY_MUTATION($isNotify: bool!) {
+    toggleNotify(isNotify: $isNotify) @client
+  }
+`;
 
 export const TOGGLE_MODAL_MUTATION = gql`
   mutation TOGGLE_MODAL_MUTATION($isLogin: bool!) {

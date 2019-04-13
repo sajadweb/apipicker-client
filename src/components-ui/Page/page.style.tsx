@@ -15,6 +15,12 @@ const styles = (theme: Theme) =>
             paddingTop: theme.spacing.unit * 2,
             paddingBottom: theme.spacing.unit * 2,
         },
+        appBar: {
+            position: 'relative',
+          },
+          flex: {
+            flex: 1,
+          },
     });
 
 export default styles;

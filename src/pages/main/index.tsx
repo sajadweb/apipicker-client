@@ -3,7 +3,6 @@ import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import createStyles from '@material-ui/core/styles/createStyles';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
 import Typography from '@material-ui/core/Typography';
-import {  Carousel} from '../../components';
 import Main from './screen/main';
 import { IPropsCode, IPropsCarousel } from '../../common';
 

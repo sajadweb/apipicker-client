@@ -32,6 +32,13 @@ const Const= {
     title: "ApiPicker",
     v1: "1.0.1ورژن ",
     maxWidth: 1200,
+    errors: {
+        form:{
+            required:"تمامی فیلد های فرم اجباری هستند",
+            email: "ایمیل با نام کاربری صحیح  نیست",
+            password: "رمز عبور صحیح  نیست",
+        }
+    },
 };
 
 export {

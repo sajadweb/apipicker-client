@@ -4,6 +4,8 @@ import {
 } from 'react-router-dom';
 import Main from "./../pages/main";
 import About from "./../pages/about";
+import Auth from "./../pages/auth";
+import { AUTH, ABOUT } from "./route.const";
 
 import Notfound from "./404.route";
 import { WithMainRoot } from '../common';
@@ -15,8 +17,9 @@ class Index extends React.PureComponent<{}>{
             <div>
                 <Header>
                     <Switch>
-                        <Route exact path="/about" component={About} />
+                        <Route exact path={ABOUT} component={About} />
                         <Route exact path="/" component={Main} />
+                        <Route exact path={AUTH} component={Auth} />
                         <Route exact path={'/*'} component={Notfound} />
                     </Switch>
                 </Header>

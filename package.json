@@ -9,8 +9,10 @@
     "@types/react": "*",
     "@types/react-dom": "*",
     "apollo-boost": "^0.3.1",
+    "classnames": "^2.2.6",
     "graphql": "^14.1.1",
     "graphql-tag": "^2.10.1",
+    "joi": "^14.3.1",
     "jss-rtl": "^0.2.3",
     "react": "latest",
     "react-animated-slider": "^1.1.4",
@@ -23,8 +25,10 @@
     "react-scripts": "latest"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.7",
     "@types/graphql": "^14.0.7",
     "@types/jest": "*",
+    "@types/joi": "^14.3.2",
     "@types/node": "*",
     "@types/react-router-dom": "^4.3.1",
     "typescript": "latest"

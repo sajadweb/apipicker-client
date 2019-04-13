@@ -1,33 +1,94 @@
 import * as React from 'react';
+import * as Joi from 'joi';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import LinearProgress from '@material-ui/core/LinearProgress';
-import { Link } from 'react-router-dom';
-import Paper from '@material-ui/core/Paper';
-import Avatar from '@material-ui/core/Avatar';
 import styles from "./header.style";
 import { NavBar } from '../NavBar';
+import { Auth } from '../Auth';
 import { Modal } from '../Modal';
 import { Query, Mutation } from 'react-apollo';
-import { LOCAL_MODAL_QUERY, TOGGLE_MODAL_MUTATION } from '../../common';
+import { LOCAL_MODAL_QUERY, TOGGLE_MODAL_MUTATION, LOGIN_MUTATION, Const } from '../../common';
+
+
+import history from '../../router/history';
 import { TextField, Button } from '@material-ui/core';
 import { GoogleLogin } from '../Google';
 
-class Index extends React.Component<WithStyles<typeof styles>, { open: boolean }> {
-    state = {
-        open: true
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import AppBar from '@material-ui/core/AppBar';
+
+type IState = {
+    errors: {
+        email?: any
+        password?:any
     }
+    value:  any
+    message: String;
+    notify: boolean
+    open: boolean
+    email?: string
+    password?: string
+}
+class Index extends React.Component<WithStyles<typeof styles>, IState> {
+    state = {
+        value: 0,
+        message: "تمامی فیلد ها اجباری می باشند",
+        errors: {
+            email: "",
+            password: ""
+        },
+        notify: false,
+        open: true,
+        email: "",
+        password: ""
+    }
+    onChangeTab = (event:any, value:any) => {
+        this.setState({ value });
+      };
     handleClickOpen = (open: boolean) => {
         this.setState({ open: open });
+    };
+    handleChange = (name: "email" | "password") => (text: any) => {
+        if (name === "password")
+            this.setState({ password: "" + text.target.value });
+        if (name === "email")
+            this.setState({ email: "" + text.target.value });
+    };
+    onLoginUser = (callApi: any) => async () => {
+        const schema = {
+            email: Joi.string().alphanum().min(3).max(30).required(),
+            password: Joi.string().alphanum().min(3).max(30).required(),
+            
+         };
+        
+        const value = {
+            email:this.state.email,
+            password:this.state.password
+        };
+        const result = Joi.validate(this.state.email, Joi.string().alphanum().min(3).max(30).required());
+        if(result.error){
+            this.setState({ message:  Const.errors.form.required},()=>{
+                this.setState({ notify: true, errors: {
+                    email:  Const.errors.form.email,
+                    password: this.state.errors.password,
+                } });
+            });
+            return;
+        }
+        // let data = await callApi();
+        // console.log(data);
+       
+        
     };
 
     render() {
         const { classes } = this.props;
+        const { value } = this.state;
         return (
             <div className={classes.root}>
+                
                 <Mutation mutation={TOGGLE_MODAL_MUTATION} variables={{ isLogin: this.state.open }}>
                     {(toggleLogin, result) => {
                         // tslint:disable-next-line:no-shadowed-variable
@@ -40,10 +101,10 @@ class Index extends React.Component<WithStyles<typeof styles>, { open: boolean }
                         }
                         return (<React.Fragment>
                             <NavBar toggleLogin={(open: boolean) => {
-                                debugger;
-                                this.setState({ open: open }, () => {
-                                    toggleLogin()
-                                })
+                                  history.push('/auth')
+                                // this.setState({ open: open }, () => {
+                                //     toggleLogin()
+                                // })
 
                             }} />
                             <Query query={LOCAL_MODAL_QUERY}>
@@ -61,30 +122,8 @@ class Index extends React.Component<WithStyles<typeof styles>, { open: boolean }
                                         })
 
                                     }} open={data.isLogin} title="ورود یا ثبت نام">
-                                        <GoogleLogin />
-                                        <hr />
-                                        <form noValidate autoComplete="off">
-                                            <TextField
-                                                required
-                                                id="email"
-                                                label="ایمیل"
-                                                className={classes.textField}
-                                                // value={this.state.name}
-                                                // onChange={this.handleChange('email')}
-                                                margin="normal"
-                                            />
-
-                                            <TextField
-                                                required
-                                                id="standard-required"
-                                                label="پسورد"
-                                                className={classes.textField}
-                                                margin="normal"
-                                            />
-                                            <Button variant="contained" color="secondary" className={classes.button}>
-                                                ورود یا ثبت نام
-      </Button>
-                                        </form>
+                                        <Auth />
+                                        
                                     </Modal>);
                                 }}
                             </Query>

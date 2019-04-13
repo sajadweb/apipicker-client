@@ -2,10 +2,12 @@ import * as React from 'react';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import createStyles from '@material-ui/core/styles/createStyles';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
-import { Code, Container, Content, ContentItem } from '../../../components';
+import { Code } from '../../../components';
+import { Content, ContentItem } from '../../../components-ui';
 import {Carousel} from '../../../components-ui';
 
 import { IPropsCode, IPropsCarousel} from '../../../common';
+
 
 
 
