@@ -1,17 +1,19 @@
 // disabel:ts-lint
-import ApolloClient from 'apollo-boost';
+import ApolloClient, { gql } from 'apollo-boost';
 import { endpoint, prodEndpoint } from './config';
-const item = localStorage.getItem("auth");
-let token = "";
-if (item) {
-  const auth = JSON.parse(item);
-  token = auth.token;
-}
-
+import { getToken } from '../utils';
+ 
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { LOCAL_LOADING_HADER_QUERY } from '.';
+const token =  getToken();
+ 
+const cache = new InMemoryCache();
 const client = new ApolloClient({
+  cache,
   clientState: {
     defaults: {
-      isLogin: false
+      isLogin: !!localStorage.getItem('token'),
+      isLoading: false
     },
     resolvers: {
       Mutation: {
@@ -23,7 +25,18 @@ const client = new ApolloClient({
           // debugger;
           return data;
         },
-
+        toggleLoading: (_: any, variables: { isLoading: any; }, { cache }: any) => {
+         const {isLoading}= cache.readQuery({
+           query:LOCAL_LOADING_HADER_QUERY
+         });
+         debugger;
+          const data = {
+            data: { isLoading: !isLoading},
+          };
+          cache.writeData(data);
+          // debugger;
+          return data;
+        },
       }
     }
   },
@@ -42,5 +55,8 @@ const client = new ApolloClient({
 });
 
 
+export {
+  cache
+}
 
 export default client;

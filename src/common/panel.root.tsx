@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Theme from './theme/base_theme'
+import Theme from './theme/panel_theme'
 import RtlProvider  from './right/right_provider'
 
 

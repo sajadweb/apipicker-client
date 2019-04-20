@@ -4,6 +4,9 @@ import createStyles from '@material-ui/core/styles/createStyles';
 const styles = (theme: Theme) =>
     createStyles({
         root: {
+            marginTop: `${theme.spacing.unit * 8}px`,
+            marginRight: `${theme.spacing.unit * 8}px`,
+            marginLeft: `${theme.spacing.unit * 8}px`,
             flexGrow: 1,
         },
         header: {
@@ -58,22 +61,38 @@ const styles = (theme: Theme) =>
         container: {
             display: 'flex',
             flexWrap: 'wrap',
-          },
-          textField: {
+        },
+        textField: {
             marginLeft: "5%",
             marginRight: "5%",
             width: "90%",
-          },
-          dense: {
+        },
+        dense: {
             marginTop: -5,
-          }, 
-          button: {
+        },
+        button: {
             marginTop: 15,
             marginBottom: 15,
             marginLeft: "5%",
             marginRight: "5%",
             width: "90%",
-          }, 
+        },
+        paper: {
+            padding: theme.spacing.unit * 2,
+            textAlign: 'center',
+            color: theme.palette.text.secondary,
+        },
+        fab: {
+            margin: theme.spacing.unit,
+        },
+        paper_root: {
+            padding: theme.spacing.unit * 2,
+            textAlign: 'left',
+            color: theme.palette.text.secondary,
+        },
+        demo: {
+            backgroundColor: theme.palette.background.paper,
+          },
     });
 
 export default styles;

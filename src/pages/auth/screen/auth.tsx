@@ -1,20 +1,11 @@
 import * as React from 'react';
-import * as Joi from 'joi';
 import withStyles, { WithStyles } from '@material-ui/core/styles/withStyles';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import styles from "./auth.style";
+import { CenterTab } from '../../../components-ui';
 
-import { Query, Mutation } from 'react-apollo';
-import { LOGIN_MUTATION, Const } from '../../../common';
-import { Notify } from '../../../components-ui';
+import { Paper, Typography, List, ListItem, ListItemIcon, ListItemText, FormControlLabel, Checkbox, FormGroup } from '@material-ui/core';
 
-import { TextField, Button } from '@material-ui/core';
-import { GoogleLogin } from '../../../components';
-
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
-import AppBar from '@material-ui/core/AppBar';
 
 type IState = {
     errors: {
@@ -28,7 +19,11 @@ type IState = {
     email?: string
     password?: string
 }
-class Index extends React.Component<WithStyles<typeof styles>, IState> {
+interface IProps extends WithStyles<typeof styles> {
+    login: any;
+    register: any;
+}
+class Index extends React.Component<IProps, IState> {
     state = {
         value: 0,
         message: "تمامی فیلد ها اجباری می باشند",
@@ -53,143 +48,122 @@ class Index extends React.Component<WithStyles<typeof styles>, IState> {
         if (name === "email")
             this.setState({ email: "" + text.target.value });
     };
-    onLoginUser = (callApi: any) => async () => {
-        const schema = {
-            email: Joi.string().alphanum().min(3).max(30).required(),
-            password: Joi.string().alphanum().min(3).max(30).required(),
-
-        };
-
-        const value = {
-            email: this.state.email,
-            password: this.state.password
-        };
-        const result = Joi.validate(this.state.email, Joi.string().alphanum().min(3).max(30).required());
-        if (result.error) {
-            this.setState({ message: Const.errors.form.required }, () => {
-                this.setState({
-                    notify: true, errors: {
-                        email: Const.errors.form.email,
-                        password: this.state.errors.password,
-                    }
-                });
-            });
-            return;
-        }
-        // let data = await callApi();
-        // console.log(data);
-
-
-    };
-
     render() {
-        const { classes } = this.props;
+        const { classes, login, register } = this.props;
         const { value } = this.state;
-       
         return (
             <div className={classes.root}>
-                
-                    <Notify message={this.state.message} open={this.state.notify} handleToggel={() => {
-                        this.setState({ notify: false });
-                    }} variant="error" />
-                    {/* <GoogleLogin /> */}
-                    <hr />
-                    <Mutation mutation={LOGIN_MUTATION} variables={
-                        {
-                            username: this.state.email,
-                            password: this.state.password,
-                        }
-                    }>
-                        {(loginCall, result) => {
-                            // tslint:disable-next-line:no-shadowed-variable
-                            const { error, loading } = result;
-                            if (error) {
-                                loading
-                                return error;
+                <Grid container spacing={8}>
+                    <Grid item xs={6}>
+                        <CenterTab
+                            items={
+                                [
+                                    { component: login, title: "ورود" },
+                                    { component: register, title: "ثبت نام" },
+                                ]
                             }
-                            if (loading) {
-                                return loading;
-                            }
-                            return (
-                                <form noValidate autoComplete="off">
-                                    <AppBar
-                                        color="default"
-                                        position="static">
-                                        <Tabs
-                                            indicatorColor="secondary"
-                                            textColor="default"
-                                            value={this.state.value}
-                                            onChange={this.onChangeTab}
+                        />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Paper className={classes.paper_root} elevation={2}>
+                            <Typography variant="h5" component="h3">
+                                کاربر گرامی خوش آمدید
+        </Typography>
+                            <Typography component="p">
+                                باورود یا ثبت نام
+                                در سایت apipicker.ir
+                                شما میتوانید از امکانت رایگان
+                                مدیریت api
+                                ها برخودار باشید
+                            </Typography>
 
-                                        >
-                                            <Tab label="ورود" />
-                                            <Tab label="ثبت نام" />
-                                        </Tabs>
-                                    </AppBar>
-                                    {value === 1 && <>
-                                        <TextField
-                                            required
-                                            id="first_name"
-                                            label="نام"
-                                            className={classes.textField}
-                                            value={this.state.email}
-                                            onChange={this.handleChange('email')}
-                                            margin="normal"
-                                            error={this.state.errors.email ? true : false}
-                                        />
-                                        {this.state.errors.email &&
-                                            <Typography className={classes.textField} color="error">
-                                                {this.state.errors.email}
-                                            </Typography>
+                            <div className={classes.demo}>
+                                <FormGroup >
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                                checked
+                                                value="dense"
+                                            />
                                         }
-
-                                    </>}
-
-                                    <TextField
-                                        required
-                                        id="email"
-                                        label="ایمیل"
-                                        className={classes.textField}
-                                        value={this.state.email}
-                                        onChange={this.handleChange('email')}
-                                        margin="normal"
-                                        error={this.state.errors.email ? true : false}
+                                        label="ساخت و مدیریت وب سرویس ها سایت خود"
                                     />
-                                    {this.state.errors.email &&
-                                        <Typography className={classes.textField} color="error">
-                                            {this.state.errors.email}
-                                        </Typography>
-                                    }
-                                    <TextField
-                                        required
-                                        id="password"
-                                        label="پسورد"
-                                        className={classes.textField}
-                                        value={this.state.password}
-                                        onChange={this.handleChange('password')}
-                                        margin="normal"
-
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                                checked
+                                                value="secondary"
+                                            />
+                                        }
+                                        label="استفاده از وب سرویس های آماده"
                                     />
-                                    {value === 0 && <>
-                                        <Button onClick={this.onLoginUser(loginCall)} variant="contained"
-                                            color="secondary" className={classes.button}>
-                                            ورود
-                                     </Button>
-                                    </>
-                                    }
-                                    {value === 1 && <>
-                                        <Button onClick={this.onLoginUser(loginCall)} variant="contained"
-                                            color="secondary" className={classes.button}>
-                                            ثبت نام
-                                         </Button>
-                                    </>}
+                                      <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                                checked
+                                                value="dense"
+                                            />
+                                        }
+                                        label="ساخت و مدیریت وب سرویس ها سایت خود"
+                                    />
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox
+                                                checked
+                                                value="secondary"
+                                            />
+                                        }
+                                        label="استفاده از وب سرویس های آماده"
+                                    />
+                                </FormGroup>
+                                <Typography component="p">
+                                باورود یا ثبت نام
+                                در سایت apipicker.ir
+                                شما میتوانید از امکانت رایگان
+                                مدیریت api
+                                ها برخودار باشید
+                               
+                                باورود یا ثبت نام
+                                در سایت apipicker.ir
+                                شما میتوانید از امکانت رایگان
+                                مدیریت api
+                                ها برخودار باشید
+                            
+                               
+                                باورود یا ثبت نام
+                                در سایت apipicker.ir
+                                شما میتوانید از امکانت رایگان
+                                مدیریت api
+                                ها برخودار باشید
+                            
+                               
+                                باورود یا ثبت نام
+                                در سایت apipicker.ir
+                                شما میتوانید از امکانت رایگان
+                                مدیریت api
+                                ها برخودار باشید
+                            
+                            </Typography>
+                            <Typography component="p">
+                                باورود یا ثبت نام
+                                در سایت apipicker.ir
+                                شما میتوانید از امکانت رایگان
+                                مدیریت api
+                                ها برخودار باشید
+                                باورود یا ثبت نام
+                                در سایت apipicker.ir
+                                شما میتوانید از امکانت رایگان
+                                مدیریت api
+                                ها برخودار باشید
+                            </Typography>
+                            </div>
+                        </Paper>
+                    </Grid>
+                </Grid>
 
-                                </form>);
-                        }}
-                    </Mutation>
- 
-            </div >
+            </div>
         );
+
     }
 }
 

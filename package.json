@@ -6,14 +6,19 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "^3.0.1",
+    "@material-ui/lab": "^3.0.0-alpha.30",
+    "@types/lodash": "^4.14.123",
     "@types/react": "*",
     "@types/react-dom": "*",
+    "@types/validatorjs": "^3.15.0",
     "apollo-boost": "^0.3.1",
     "classnames": "^2.2.6",
     "graphql": "^14.1.1",
     "graphql-tag": "^2.10.1",
     "joi": "^14.3.1",
+    "joi-i18n": "^13.1.3",
     "jss-rtl": "^0.2.3",
+    "lodash": "^4.17.11",
     "react": "latest",
     "react-animated-slider": "^1.1.4",
     "react-apollo": "^2.5.3",
@@ -22,7 +27,8 @@
     "react-json-view": "^1.19.1",
     "react-jss": "^8.6.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "latest"
+    "react-scripts": "latest",
+    "validatorjs": "^3.15.1"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.7",

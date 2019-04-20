@@ -4,3 +4,5 @@ export * from "./Main";
 export * from "./Code";
 export * from "./NavBar";
 export * from "./Google";
+export * from "./Progress";
+

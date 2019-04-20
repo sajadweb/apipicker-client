@@ -38,10 +38,11 @@ class Index extends React.Component<WithStyles<typeof styles>, State> {
     render() {
         return (
             <div className={this.props.classes.root}>
-                <Breadcrumb  data={[
-                    {name:"داشبورد",route:null}
-                ]}/>
-                <p>User 1</p>
+                <Breadcrumb data={[
+                    {name:"داشبورد",route:URI_DASHBARD},
+                    {name:"تنظیمات",route:null}
+                ]} />
+                <p>Setting</p>
              
             </div>
         );

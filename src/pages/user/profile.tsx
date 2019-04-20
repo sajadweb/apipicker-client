@@ -10,7 +10,7 @@ const styles = (theme: Theme) =>
     createStyles({
         root: {
             // textAlign: 'center',
-            // paddingTop: theme.spacing.unit * 20,
+            paddingTop: theme.spacing.unit ,
         },
     });
 
@@ -38,11 +38,11 @@ class Index extends React.Component<WithStyles<typeof styles>, State> {
     render() {
         return (
             <div className={this.props.classes.root}>
-                <Breadcrumb  data={[
-                    {name:"داشبورد",route:null}
+              <Breadcrumb  data={[
+                    {name:"داشبورد",route:URI_DASHBARD},
+                    {name:"پروفایل",route:null}
                 ]}/>
-                <p>User 1</p>
-             
+                <p>User Profile</p>
             </div>
         );
     }

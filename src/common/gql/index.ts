@@ -12,9 +12,19 @@ export const TOGGLE_MODAL_MUTATION = gql`
     toggleLogin(isLogin: $isLogin) @client
   }
 `;
+// loading
+export const LOCAL_LOADING_HADER_QUERY = gql`
+  query {
+    isLoading @client
+  }`;
 
+export const TOGGLE_LOADING_HADER_MUTATION = gql`
+  mutation TOGGLE_MODAL_MUTATION($isLoading: bool!) {
+    toggleLoading(isLoading: $isLoading) @client
+  }
+`;
 
-const PROJECT_TYPE =`
+const PROJECT_TYPE = `
   id
   name
   logo
@@ -111,6 +121,16 @@ mutation Signup(
     last_name: $last_name,
     email:  $email,
     ) {
+    user {
+      ${USER_TYPE}
+    }
+    auth_token {
+       ${TOKEN_TYPE}
+    }
+  }
+}`
+export const SOCIAL_MUTATION = gql`mutation Social ($token: String!,$provider: String!){
+  social(token: $token,provider: $provider) {
     user {
       ${USER_TYPE}
     }

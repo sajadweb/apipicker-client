@@ -6,6 +6,7 @@ import Main from "./main.route";
 import Panel from "./panel.route";
 
 import history from './history';
+import { getToken } from '../common';
  
 
 class Index extends React.PureComponent<{}>{
@@ -15,8 +16,9 @@ class Index extends React.PureComponent<{}>{
             <Router history={history}>
                 <React.Fragment>
                     <Switch>
-                        <Route  path={'/user'} component={Panel} />
-                        <Route exact path={'/*'} component={Main} />
+                        
+                        {getToken() != null && <Route  path={'/*'} component={Panel} />}   
+                        {getToken() == null &&  <Route exact path={'/*'} component={Main} />}
                     </Switch>
                 </React.Fragment>
             </Router>
